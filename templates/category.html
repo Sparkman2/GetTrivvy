@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="purple-box">
+    <div class="title-text">{{ category_name | capitalize }} Trivia Packs</div>
+    <div class="top-right-links">
+        <a href="{{ url_for('index') }}" class="button">Home</a>
+    </div>
+    <div class="welcome-text">
+        <ul>
+            {% for pack in category_packs %}
+                <li>
+                    <a href="{{ url_for('play_trivia_pack', pack_id=pack.id) }}">
+                        {{ pack.description }} - {{ pack.likes_count }} likes
+                    </a>
+                </li>
+            {% else %}
+                <p>No trivia packs found in this category.</p>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

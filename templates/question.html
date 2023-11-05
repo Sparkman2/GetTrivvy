@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="purple-box">
+    <div class="title-text">{{ question.content }}</div>
+    <div class="welcome-text">
+          {% for answer in answers %}
+              <button class="answer-button btn btn-outline-primary mt-2" onclick="checkAnswer(this)" type="button" data-answer="{{ answer }}">
+                {{ answer }}
+              </button>
+          {% endfor %}
+
+         <div id="feedback" class="alert mt-3" role="alert" style="display: none;"></div>
+    </div>
+</div>
+
+
+<script>
+  function checkAnswer(button) {
+    const selectedAnswer = button.getAttribute('data-answer');
+    const correctAnswer = "{{ correct_answer }}";
+    const nextQuestionUrl = "{{ url_for('question_view', question_id=next_question_id) if not last_question else url_for('trivia_results') }}";
+
+    // Prepare the AJAX request to update the score
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '{{ url_for("update_score") }}', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // The request to update the score is complete, proceed to next question
+        setTimeout(function() {
+          window.location.href = nextQuestionUrl;
+        }, 5000);
+      }
+    };
+
+    // Disable all buttons after the first click
+    const buttons = document.querySelectorAll('.answer-button');
+    buttons.forEach(button => {
+      button.disabled = true;
+    });
+
+    // Show feedback
+    const feedbackElement = document.getElementById('feedback');
+    let isCorrect = false;
+    if (selectedAnswer === correctAnswer) {
+      // Correct answer
+      button.classList.add('btn-success');
+      feedbackElement.classList.add('alert-success');
+      feedbackElement.textContent = 'Correct!';
+      isCorrect = true;
+    } else {
+      // Incorrect answer
+      button.classList.add('btn-danger');
+      feedbackElement.classList.add('alert-danger');
+      feedbackElement.textContent = 'Incorrect. The correct answer was: ' + correctAnswer;
+      // Highlight the correct answer
+      buttons.forEach(button => {
+        if (button.getAttribute('data-answer') === correctAnswer) {
+          button.classList.add('btn-success');
+        }
+      });
+    }
+    feedbackElement.style.display = 'block';
+
+    // Send the AJAX request to update the score
+    xhr.send(JSON.stringify({ correct: isCorrect }));
+  }
+</script>
+
+{% endblock %}

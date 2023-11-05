@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="purple-box">
+    <div class="title-text">All Done!</div>
+    <div class="welcome-text">
+        <p> Your trivia pack is now complete with 5 questions</p>
+
+        <a class="btn btn-primary btn-lg" href="{{ url_for('create_trivia_pack') }}" role="button">Create Another Pack</a>
+        <a class="btn btn-secondary btn-lg" href="{{ url_for('index') }}" role="button">Go to Homepage</a>
+
+    </div>
+</div>
+
+{% endblock %}

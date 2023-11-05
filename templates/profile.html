@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="purple-box">
+    <div class="title-area">
+        <div class="title-text">{{ user.username }}</div>
+        <div class="likes-text">Total Likes: {{ total_likes }}</div>
+    </div>
+    <div class="top-right-links">
+        <a href="{{ url_for('index') }}" class="button">Home</a>
+    </div>
+    <div class="category-buttons">
+        {% for category in title %}
+            <a href="{{ url_for('profile_category', username=user.username, category_name=category) }}" class="category-button">{{ category }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

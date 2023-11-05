@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="purple-box">
+    <div class="title-text">Leaderboard</div>
+    <div class="top-right-links">
+        <a href="{{ url_for('index') }}" class="button">Home</a>
+    </div>
+    <div class="container text-center">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Likes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user, likes_count in leaderboard %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><a href="{{ url_for('profile', username=user) }}">{{ user }}</a></td>
+                    <td>{{ likes_count }}</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+</div>
+{% endblock %}

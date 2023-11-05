@@ -1,0 +1,178 @@
+*{text-decoration: none;}
+*{font-family: Quicksand;}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+  }
+body, html {
+    margin: 0;
+    height: 100%;
+    background-color: rgb(255,206,79); /* This is the yellow background */
+}
+
+.purple-box {
+    width: 95%; /* Width of the box */
+    height: 90vh; /* Height of the box */
+    background-color: rgb(31,5,68); /* Darker shade of purple */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border-radius: 20px; /* This adds rounded corners to the box */
+    box-shadow: -20px 20px 30px rgb(80,20,120);
+
+}
+
+/* Add a new class for the title text */
+.title-text {
+    color: rgb(255,206,79); /* This will make the text yellow */
+    font-size: 3em; /* Adjust size as needed */
+    position: absolute;
+    top: 10px;
+    left: 20px; /* Adjust positioning as needed */
+    z-index: 20;
+}
+
+/* Add a new class for the top right links */
+.top-right-links {
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Adjust positioning as needed */
+    z-index: 20;
+}
+
+/* Style individual links */
+.top-right-links a {
+    color: rgb(255,206,79); /* Yellow color for the links */
+    text-decoration: none; /* No underline */
+    margin-left: 20px; /* Space between the links */
+    font-size: 1.2em; /* Adjust size as needed */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Hover effect for links */
+.top-right-links a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.welcome-text {
+    font-family: 'Arial Black', sans-serif; /* Replace with your font of choice */
+    color: #fff; /* White color text */
+    font-size: 2em; /* Adjust size as needed */
+    text-align: center; /* To center-align the text */
+    position: absolute;
+    width: 100%; /* Ensure the width spans the purple box */
+    top: 50%; /* Position at half the height of the purple box */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    z-index: 20;
+
+}
+
+    .welcome-text:link {color:rgb(255, 255, 255);}
+  .welcome-text:visited {color:rgb(255, 255, 255);}
+  .welcome-text:hover {color:rgb(255, 255, 255);}
+  .welcome-text:active {color: white;}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: rgb(255,206,79);
+    color: rgb(31,5,68); /* Purple text color, assuming it's the same as the purple box */
+    border: none;
+    border-radius: 25px; /* This gives the button the "bubble" shape */
+    text-decoration: none; /* Removes underline from links */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.container {
+    display: flex;
+    text-align: left;
+    flex-direction: row; /* This will stack children vertically */
+    align-items: flex-start; /* This will align children to the left */
+    padding-left: 20px; /* Adjust as needed
+    /* Add your styles */
+}
+
+
+.category-item {
+    display: inline-block; /* Or 'block' if you want them to take up the whole line */
+  padding: 10px 20px; /* Adjust as needed for padding */
+  margin: 5px; /* Provides space between the buttons */
+  text-align: center; /* Centers the text inside the button */
+  text-decoration: none; /* Removes underline from links */
+  font-size: 16px; /* Adjust as needed for font size */
+  width: 150px; /* Adjust width as needed */
+  box-sizing: border-box; /* Makes sure padding doesn't affect total width */
+    /* Your other styles */
+}
+
+
+.title-area {
+    text-align: center; /* Center the title and likes */
+}
+
+.likes-text {
+    margin-top: 10px; /* Add some space between the username and the likes */
+    font-size: 3em; /* Adjust size as needed */
+    color: rgb(255,206,79); /* This will make the text yellow */
+
+}
+
+.category-buttons {
+    text-align: center; /* Align buttons in the center */
+    margin-top: 20px; /* Space between the likes and the category buttons */
+}
+
+.category-button {
+    display: inline-block; /* Align horizontally */
+    width: 150px; /* Fixed width for all buttons */
+    height: 50px;
+    margin-right: 10px; /* Space between buttons */
+    background-color: rgb(255,206,79); /* Yellow background */
+    padding: 10px 20px; /* Padding inside the buttons */
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Text color */
+    font-size: 1em; /* Text size */
+    border-radius: 30px; /* Rounded corners */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.category-button:hover {
+    background-color: #ffd700; /* Darker yellow on hover */
+}
+
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center buttons vertically */
+    justify-content: center; /* Center buttons horizontally */
+    padding: 20px;
+}
+
+.answer-button {
+    padding: 20px 20px; /* Increase padding to make buttons bigger */
+    font-size: 70px; /* Increase font size */
+    margin: 10px; /* Add some space between the buttons */
+    width: 40%; /* You can adjust this to control the button width */
+    /* Add any other styles you want for your button here */
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 30px;
+  color: gold;
+  margin-top: 20px;
+
+  height: 100vh; /* This will make sure the container takes full viewport height */
+}
+
+ a:link {color:white;}
+  a:visited {color:white;}
+  a:hover {color:white;}
+  a:active {color: white;}
